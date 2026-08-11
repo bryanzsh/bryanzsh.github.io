@@ -97,7 +97,7 @@ const CV = {
     {
       school: 'TECSUP',
       program: 'Administración de Redes y Comunicaciones',
-      period: 'Carrera terminada — Marzo 2024',
+      period: 'Carrera terminada — Julio 2024',
       status: 'Terminada',
       monogram: 'T',
       accent: '#1d4ed8',
@@ -106,7 +106,7 @@ const CV = {
     {
       school: 'EPE UPC',
       program: 'Ingeniería de Redes y Comunicaciones',
-      period: 'Marzo 2024 — Actualidad',
+      period: 'Julio 2024 — Actualidad',
       status: 'En curso',
       monogram: 'U',
       accent: '#e53935',
@@ -181,8 +181,7 @@ function render() {
           `<a class="chip" href="${esc(c.href)}" ${i < 2 ? 'target="_blank" rel="noopener"' : ''}>` +
           `<span class="chip-k">${c.k}</span> ${esc(c.text)}</a>`
       )
-      .join('') +
-    '<button type="button" class="chip chip-btn js-print"><span class="chip-k">print</span> guardar PDF</button>';
+      .join('');
 
   document.querySelector('main [data-sec="sobre-mi"].container').innerHTML =
     '<ul class="about-list">' + CV.about.map((p) => `<li>${esc(p)}</li>`).join('') + '</ul>';
@@ -364,7 +363,6 @@ const input = document.getElementById('paletteInput');
 const list = document.getElementById('paletteList');
 
 const actions = [
-  { id: 'print', label: 'Imprimir / guardar como PDF', hint: ':print', kws: 'pdf guardar descargar imprimir', run: () => window.print() },
   { id: 'theme', label: 'Alternar tema oscuro/claro', hint: ':theme', kws: 'tema color dark light oscuro claro', run: toggleTheme }
 ];
 
@@ -492,9 +490,6 @@ list.addEventListener('click', (e) => {
 mask.addEventListener('click', (e) => {
   if (e.target === mask) openPalette(false);
 });
-
-/* ── Impresión ───────────────────────────────────────────────── */
-document.querySelectorAll('.js-print').forEach((btn) => btn.addEventListener('click', () => window.print()));
 
 /* ── Arranque ────────────────────────────────────────────────── */
 render();
