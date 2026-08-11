@@ -7,7 +7,7 @@ const CV = {
     name: 'Bryan Vitor Diaz',
     role: 'ADMINISTRADOR DE REDES Y COMUNICACIONES / ANALISTA DE CIBERSEGURIDAD',
     tagline:
-      'Administrador de Redes y Comunicaciones / Analista de Ciberseguridad, con 2 años de ' +
+      'Administrador de Redes y Comunicaciones / Analista de Ciberseguridad, con más de 2 años de ' +
       'experiencia en redes, ciberseguridad (SOC/NOC) y ethical hacking. Amplia experiencia en la ' +
       'administración y configuración de equipos CheckPoint Firewall, Palo Alto FW, Fortinet ' +
       '(FortiGate, FortiWeb, FortiManager, FortiAnalyzer), y en herramientas SIEM como IBM QRadar, ' +
@@ -18,10 +18,9 @@ const CV = {
   },
 
   about: [
-    'Administrador de Redes y Comunicaciones y Analista de Ciberseguridad con 2 años de experiencia en redes, SOC/NOC y ethical hacking.',
-    'Amplia experiencia en la administración y configuración de equipos de seguridad perimetral: CheckPoint, Palo Alto y Fortinet (FortiGate, FortiWeb, FortiManager, FortiAnalyzer).',
-    'Opero a diario herramientas SIEM, EDR y XDR como IBM QRadar, Cortex Palo Alto, Microsoft Sentinel, Defender, SentinelOne, Trend Micro y CrowdStrike para detectar, analizar y escalar incidentes cumpliendo SLAs.',
-    'Certificado CCNA, NSE4, NSE7 SD-WAN, eJPTv2, IBM QRadar, CrowdStrike y LPI Linux; con paso firme hacia el análisis ofensivo y el diseño de redes seguras.'
+    'Administrador de Redes y Comunicaciones / Analista de Ciberseguridad, con más de 2 años de experiencia en redes, ciberseguridad (SOC/NOC) y ethical hacking.',
+    'Amplia experiencia en la administración y configuración de equipos CheckPoint Firewall, Palo Alto FW, Fortinet (FortiGate, FortiWeb, FortiManager, FortiAnalyzer), así como en el uso de herramientas SIEM como IBM QRadar, Cortex Palo Alto, Sentinel, Defender y Trend Micro.',
+    'Certificaciones obtenidas: Cisco CCNA, Fortinet NSE4, NSE7 SDWAN Fortinet, eJPTv2, IBM QRadar, CrowdStrike y LPI Linux.'
   ],
 
   experience: [
