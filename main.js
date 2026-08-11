@@ -13,7 +13,8 @@ const CV = {
       '(FortiGate, FortiWeb, FortiManager, FortiAnalyzer), y en herramientas SIEM como IBM QRadar, ' +
       'Cortex Palo Alto, Sentinel, Defender y Trend Micro.',
     github: 'https://github.com/bryanzsh',
-    linkedin: 'https://www.linkedin.com/in/bryan-alexis-vitor-diaz/'
+    linkedin: 'https://www.linkedin.com/in/bryan-alexis-vitor-diaz/',
+    background: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80'
   },
 
   about: [
@@ -158,6 +159,10 @@ function toggleTheme() {
 applyTheme(initialTheme());
 themeToggle.addEventListener('click', toggleTheme);
 
+if (CV.meta.background) {
+  document.body.style.setProperty('--cv-bg', `url("${CV.meta.background}")`);
+}
+
 /* ── Render de secciones desde CV ────────────────────────────── */
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -200,7 +205,7 @@ function render() {
     )
     .join('');
 
-  document.querySelector('main [data-sec="skills"].container').innerHTML =
+  document.querySelector('main [data-sec="habilidades"].container').innerHTML =
     '<div class="skills">' +
     CV.skills
       .map(
