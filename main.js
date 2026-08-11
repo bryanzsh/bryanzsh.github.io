@@ -184,10 +184,10 @@ function render() {
       .join('') +
     '<button type="button" class="chip chip-btn js-print"><span class="chip-k">print</span> guardar PDF</button>';
 
-  document.querySelector('main [data-sec="sobre-mi"]').innerHTML =
+  document.querySelector('main [data-sec="sobre-mi"].container').innerHTML =
     '<ul class="about-list">' + CV.about.map((p) => `<li>${esc(p)}</li>`).join('') + '</ul>';
 
-  document.querySelector('main [data-sec="experiencia"]').innerHTML = CV.experience
+  document.querySelector('main [data-sec="experiencia-laboral"].container').innerHTML = CV.experience
     .map(
       (j) => `
       <article class="job reveal">
@@ -201,7 +201,7 @@ function render() {
     )
     .join('');
 
-  document.querySelector('main [data-sec="skills"]').innerHTML =
+  document.querySelector('main [data-sec="skills"].container').innerHTML =
     '<div class="skills">' +
     CV.skills
       .map(
@@ -214,7 +214,7 @@ function render() {
       .join('') +
     '</div>';
 
-  document.querySelector('main [data-sec="certificaciones"]').innerHTML =
+  document.querySelector('main [data-sec="certificaciones"].container').innerHTML =
     '<div class="certs">' +
     CV.certificates
       .map(
@@ -228,7 +228,7 @@ function render() {
       .join('') +
     '</div>';
 
-  document.querySelector('main [data-sec="formacion"]').innerHTML =
+  document.querySelector('main [data-sec="formacion"].container').innerHTML =
     '<div class="education">' +
     CV.education
       .map(
@@ -247,7 +247,7 @@ function render() {
       .join('') +
     '</div>';
 
-  document.querySelector('main [data-sec="idiomas"]').innerHTML = CV.languages
+  document.querySelector('main [data-sec="idiomas"].container').innerHTML = CV.languages
     .map(
       (l) => `
       <div class="lang reveal">
