@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="CV de Bryan Vitor Diaz — Administrador de Redes y Comunicaciones / Analista de Ciberseguridad" />
+  <title>Bryan Vitor Diaz — Administrador de Redes | Analista de Ciberseguridad</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230d1117'/%3E%3Ctext x='50' y='70' font-size='54' text-anchor='middle' fill='%233fb950' font-family='monospace'%3E%3E_%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <header class="topbar no-print" role="banner">
+    <span class="topbar-path">~/cv <span class="topbar-branch">(main)</span></span>
+    <button type="button" id="themeToggle" class="icon-btn" aria-pressed="false">
+      <span class="icon-btn-label">tema: oscuro</span>
+    </button>
+  </header>
+
+  <header class="hero">
+    <!-- Cabecera clásica, visible solo al imprimir -->
+    <div class="print-header">
+      <h1 class="ph-name">Bryan Vitor Diaz</h1>
+      <p class="ph-role">ADMINISTRADOR DE REDES Y COMUNICACIONES / ANALISTA DE CIBERSEGURIDAD</p>
+      <p class="ph-contact"></p>
+    </div>
+
+    <div class="terminal" role="presentation" aria-label="Terminal de presentación">
+      <div class="terminal-bar">
+        <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h1 class="terminal-title">bryan@cv: ~</h1>
+      </div>
+      <div class="terminal-body" id="heroLines"></div>
+    </div>
+
+    <nav class="contact" id="contactLinks" aria-label="Enlaces de contacto"></nav>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section id="sobre-mi" class="reveal" aria-labelledby="sobre-mi-t" data-sec="sobre-mi">
+        <h2 id="sobre-mi-t"><span class="prompt" aria-hidden="true">❯</span> sobre-mi</h2>
+        <div class="container" data-sec="sobre-mi"></div>
+      </section>
+
+      <section id="experiencia" class="reveal" aria-labelledby="experiencia-t" data-sec="experiencia">
+        <h2 id="experiencia-t"><span class="prompt" aria-hidden="true">❯</span> experiencia</h2>
+        <div class="container reveal-stagger" data-sec="experiencia"></div>
+      </section>
+
+      <section id="proyectos" class="reveal" aria-labelledby="proyectos-t" data-sec="proyectos">
+        <h2 id="proyectos-t"><span class="prompt" aria-hidden="true">❯</span> proyectos-destacados</h2>
+        <div class="container reveal-stagger" data-sec="proyectos"></div>
+      </section>
+
+      <section id="skills" class="reveal" aria-labelledby="skills-t" data-sec="skills">
+        <h2 id="skills-t"><span class="prompt" aria-hidden="true">❯</span> skills</h2>
+        <div class="container reveal-stagger" data-sec="skills"></div>
+      </section>
+
+      <section id="certificaciones" class="reveal" aria-labelledby="certificaciones-t" data-sec="certificaciones">
+        <h2 id="certificaciones-t"><span class="prompt" aria-hidden="true">❯</span> certificaciones</h2>
+        <div class="container reveal-stagger" data-sec="certificaciones"></div>
+      </section>
+
+      <section id="formacion" class="reveal" aria-labelledby="formacion-t" data-sec="formacion">
+        <h2 id="formacion-t"><span class="prompt" aria-hidden="true">❯</span> formacion-academica</h2>
+        <div class="container reveal-stagger" data-sec="formacion"></div>
+      </section>
+
+      <section id="idiomas" class="reveal" aria-labelledby="idiomas-t" data-sec="idiomas">
+        <h2 id="idiomas-t"><span class="prompt" aria-hidden="true">❯</span> idiomas</h2>
+        <div class="container" data-sec="idiomas"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="no-print">
+    <p class="footer-line"><span class="prompt" aria-hidden="true">❯</span> echo "gracias por visitar"</p>
+    <p>Hecho con HTML + CSS + JavaScript vanilla. Para guardar una copia limpia en papel: <button type="button" class="linkish js-print">imprimir / PDF</button> o abre la paleta con <kbd>Ctrl</kbd>+<kbd>K</kbd>.</p>
+  </footer>
+
+  <div class="palette-mask" id="paletteMask" hidden>
+    <div class="palette" role="dialog" aria-modal="true" aria-label="Paleta de comandos del CV">
+      <div class="palette-field">
+        <span class="palette-prompt" aria-hidden="true">❯</span>
+        <input id="paletteInput" type="text" role="combobox" autocomplete="off" spellcheck="false"
+               aria-autocomplete="list" aria-expanded="true" aria-controls="paletteList"
+               aria-activedescendant="" placeholder="escribe un comando o busca…" />
+      </div>
+      <ul id="paletteList" class="palette-list" role="listbox" aria-label="Comandos"></ul>
+      <div class="palette-keys">
+        <kbd>↑↓</kbd> navegar &nbsp;·&nbsp; <kbd>↵</kbd> ejecutar &nbsp;·&nbsp; <kbd>esc</kbd> cerrar
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <p class="noscript">Este CV se dibuja desde <code>main.js</code>. Activa JavaScript para verlo.</p>
+  </noscript>
+
+  <script src="main.js"></script>
+</body>
+</html>
