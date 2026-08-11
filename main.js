@@ -122,7 +122,8 @@ const CV = {
       period: 'Carrera terminada — Marzo 2024',
       status: 'Terminada',
       monogram: 'T',
-      accent: '#1d4ed8'
+      accent: '#1d4ed8',
+      img: 'https://www.tecsup.edu.pe/wp-content/uploads/2024/03/MG_7248-1.jpg'
     },
     {
       school: 'EPE UPC',
@@ -130,7 +131,9 @@ const CV = {
       period: 'Marzo 2024 — Actualidad',
       status: 'En curso',
       monogram: 'U',
-      accent: '#e53935'
+      accent: '#e53935',
+      img: 'https://gestion.pe/resizer/8ImTOn1xf0ImRHnCf0vBfKBgxew=/5590x3726/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/2HUMWVGUBZC4FNL3X7G6P6GSLY.jpg',
+      lg: true
     }
   ],
 
@@ -268,7 +271,7 @@ function render() {
     CV.education
       .map(
         (e) => `
-        <article class="edu-card reveal" style="--card-accent:${e.accent}">
+        <article class="edu-card reveal${e.lg ? ' edu-card--lg' : ''}" style="--card-accent:${e.accent};${e.img ? ` --card-img:url("${e.img}")` : ''}">
           <div class="edu-overlay" aria-hidden="true"></div>
           <span class="edu-monogram" aria-hidden="true">${esc(e.monogram)}</span>
           <div class="edu-content">
