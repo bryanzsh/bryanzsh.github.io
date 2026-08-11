@@ -45,7 +45,8 @@
 
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+.hero, main section { scroll-snap-align: start; }
 
 body {
   margin: 0;
@@ -114,9 +115,13 @@ button { font-family: inherit; }
 
 /* ── Héroe: terminal ─────────────────────────────────────────── */
 .hero {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 940px;
   margin: 0 auto;
-  padding: 46px 20px 26px;
+  padding: 24px 20px;
   text-align: center;
 }
 
@@ -220,24 +225,31 @@ button { font-family: inherit; }
 .chip-btn:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── Secciones ───────────────────────────────────────────────── */
-section { padding: 40px 0 8px; }
+section { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
 
 section h2 {
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 0 0 20px;
-  font-size: 20px;
+  gap: 12px;
+  margin: 0 0 34px;
+  font-size: clamp(1.5rem, 4.2vw, 2.6rem);
   color: var(--accent);
   text-transform: lowercase;
   letter-spacing: .02em;
 }
-section h2 .prompt { color: var(--green); font-size: 15px; }
+section h2 .prompt { color: var(--green); font-size: .72em; }
 section h2::after {
   content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--border), transparent);
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--green);
 }
 
 .container > * + * { margin-top: 18px; }
@@ -280,33 +292,6 @@ section h2::after {
   padding: 4px 0;
 }
 .job-list li::before { content: "-"; color: var(--green); flex: none; }
-
-/* ── Proyectos ───────────────────────────────────────────────── */
-.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-.project {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 18px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-}
-.project-name { margin: 0; font-size: 15px; }
-.project-name::before { content: "./"; color: var(--green); }
-.project-desc { margin: 0; color: var(--muted); font-size: 13.5px; flex: 1; }
-.project-stack { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
-.project-result {
-  margin: 0;
-  font-size: 13px;
-  color: var(--green);
-  background: var(--green-soft);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 10px;
-}
-.project-result b { color: var(--text); }
 
 /* ── Skills ──────────────────────────────────────────────────── */
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
@@ -381,7 +366,7 @@ section h2::after {
   inset: 0;
   z-index: -2;
   background: var(--card-accent);
-  opacity: .28;               /* color institucional en baja opacidad sobre la foto */
+  opacity: .4;               /* color institucional al 40% sobre la foto */
 }
 .edu-monogram {
   position: absolute;
@@ -564,6 +549,7 @@ kbd {
    ════════════════════════════════════════════════════════════════ */
 @media print {
   @page { size: A4; margin: 12mm 14mm; }
+  html { scroll-behavior: auto; scroll-snap-type: none; }
 
   :root {
     --bg: #ffffff;
@@ -584,27 +570,24 @@ kbd {
   .ph-role { margin: 4pt 0 0; font-size: 10.5pt; text-transform: uppercase; letter-spacing: .8pt; }
   .ph-contact { margin: 5pt 0 0; font-size: 8.5pt; color: #333; }
 
-  .hero { max-width: 100%; padding: 0; margin: 0; text-align: left; }
-  section { padding: 0 0 10pt; page-break-inside: avoid; }
+  .hero { max-width: 100%; min-height: 0; padding: 0; margin: 0; text-align: left; }
+  section { min-height: 0; justify-content: flex-start; padding: 0 0 10pt; page-break-inside: avoid; }
   section h2 { font-size: 12pt; margin: 0 0 6pt; color: #111; }
   section h2 .prompt { color: #111; }
   section h2::after { display: none; }
 
   .container > * + * { margin-top: 8pt; }
-  .job, .project, .skill-group, .cert { box-shadow: none; border-color: #b0b6bf; }
+  .job, .skill-group, .cert { box-shadow: none; border-color: #b0b6bf; }
   .job { padding: 8pt 0; border: none; border-top: 1px solid #c6c9cf; border-radius: 0; page-break-inside: avoid; }
   .job-head { margin-bottom: 2pt; }
   .job-list li { padding: 1.5pt 0; }
   .job-list li::before { color: #111; }
   .about-list li { padding: 1.5pt 0; }
-  .about-list li::before, .project-name::before { color: #111; }
+  .about-list li::before { color: #111; }
 
-  .projects, .skills, .certs, .education { grid-template-columns: repeat(2, 1fr); gap: 8pt; }
-  .project, .skill-group, .cert { page-break-inside: avoid; }
-  .skills, .certs { grid-template-columns: 1fr 1fr; }
-  .tags .tag, .project-stack .tag { border-color: #c6c9cf; background: #f2f3f5; color: #111; }
-  .project-result { background: #f2f3f5; border-color: #c6c9cf; color: #111; }
-  .project-result b { color: #111; }
+  .skills, .certs, .education { grid-template-columns: repeat(2, 1fr); gap: 8pt; }
+  .skill-group, .cert { page-break-inside: avoid; }
+  .tags .tag { border-color: #c6c9cf; background: #f2f3f5; color: #111; }
   .cert { color: #111; text-decoration: none; }
   .cert-ico { background: #eee; color: #111; border: 1px solid #c6c9cf; }
 

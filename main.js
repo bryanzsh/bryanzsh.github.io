@@ -12,9 +12,8 @@ const CV = {
       'administración y configuración de equipos CheckPoint Firewall, Palo Alto FW, Fortinet ' +
       '(FortiGate, FortiWeb, FortiManager, FortiAnalyzer), y en herramientas SIEM como IBM QRadar, ' +
       'Cortex Palo Alto, Sentinel, Defender y Trend Micro.',
-    email: 'bryan.diaz@email.com',                  // TODO: cambia por tu email real
-    github: 'https://github.com/bryandiaz',          // TODO: cambia por tu GitHub real
-    linkedin: 'https://www.linkedin.com/in/bryandiaz' // TODO: cambia por tu LinkedIn real
+    github: 'https://github.com/bryanzsh',
+    linkedin: 'https://www.linkedin.com/in/bryan-alexis-vitor-diaz/'
   },
 
   about: [
@@ -70,27 +69,6 @@ const CV = {
         'Inventariado y gestión de equipos informáticos (PCs y laptops) del campus.',
         'Atención de soporte de primera línea (service desk) para docentes y alumnos.'
       ]
-    }
-  ],
-
-  projects: [
-    {
-      name: 'Proyecto 1',
-      description: 'TODO: describe aquí tu proyecto destacado (qué era, para quién y qué problema resolvía).',
-      stack: [],
-      result: 'TODO: resultado concreto y medible (ej. "redujo el tiempo de triaje un 40%")'
-    },
-    {
-      name: 'Proyecto 2',
-      description: 'TODO: describe aquí tu proyecto destacado.',
-      stack: [],
-      result: 'TODO: resultado concreto y medible.'
-    },
-    {
-      name: 'Proyecto 3',
-      description: 'TODO: describe aquí tu proyecto destacado.',
-      stack: [],
-      result: 'TODO: resultado concreto y medible.'
     }
   ],
 
@@ -190,12 +168,11 @@ function render() {
   document.querySelector('.print-header .ph-name').textContent = M.name;
   document.querySelector('.print-header .ph-role').textContent = M.role;
   document.querySelector('.print-header .ph-contact').textContent =
-    `${M.email} · ${M.github.replace(/^https?:\/\//, '')} · ${M.linkedin.replace(/^https?:\/\//, '')}`;
+    `${M.github.replace(/^https?:\/\//, '')} · ${M.linkedin.replace(/^https?:\/\//, '')}`;
 
   const contacts = [
     { k: 'GH', text: M.github.replace(/^https?:\/\//, ''), href: M.github },
-    { k: 'in', text: M.linkedin.replace(/^https?:\/\//, ''), href: M.linkedin },
-    { k: '@', text: M.email, href: `mailto:${M.email}` }
+    { k: 'in', text: M.linkedin.replace(/^https?:\/\//, ''), href: M.linkedin }
   ];
   document.getElementById('contactLinks').innerHTML =
     contacts
@@ -223,21 +200,6 @@ function render() {
       </article>`
     )
     .join('');
-
-  document.querySelector('main [data-sec="proyectos"]').innerHTML =
-    '<div class="projects">' +
-    CV.projects
-      .map(
-        (p) => `
-        <article class="project reveal">
-          <h3 class="project-name">${esc(p.name)}</h3>
-          <p class="project-desc">${esc(p.description)}</p>
-          ${p.stack.length ? `<ul class="project-stack">${p.stack.map((s) => `<li class="tag">${esc(s)}</li>`).join('')}</ul>` : ''}
-          <p class="project-result"><b>Resultado:</b> ${esc(p.result)}</p>
-        </article>`
-      )
-      .join('') +
-    '</div>';
 
   document.querySelector('main [data-sec="skills"]').innerHTML =
     '<div class="skills">' +
