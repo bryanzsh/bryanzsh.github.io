@@ -268,7 +268,7 @@ function typeHero() {
   const box = document.getElementById('heroLines');
   const lines = [
     { prompt: '❯', text: 'whoami' },
-    { prompt: '➝', text: 'bryan.vitor' },
+    { prompt: '➝', text: 'bryan vitor diaz' },
     { prompt: '❯', text: 'cat rol.txt' },
     { prompt: '➝', text: CV.meta.role, role: true },
     { prompt: '❯', text: 'cat resumen.txt' },
@@ -339,6 +339,40 @@ function typeHero() {
   };
 
   step();
+}
+
+/* ── Índice de secciones ─────────────────────────────────────── */
+const INDEX_LABELS = {
+  'sobre-mi': 'sobre mí',
+  'experiencia-laboral': 'experiencia',
+  habilidades: 'habilidades',
+  certificaciones: 'certificaciones',
+  formacion: 'formación',
+  idiomas: 'idiomas'
+};
+
+function initIndex() {
+  const nav = document.querySelector('[data-index]');
+  if (!nav) return;
+  const secs = [...document.querySelectorAll('main section[id]')];
+  nav.innerHTML = secs
+    .map(
+      (s, i) =>
+        `<a class="index-link" href="#${s.id}">` +
+        `<span class="il-num">${String(i + 1).padStart(2, '0')}</span>` +
+        `${INDEX_LABELS[s.id] || s.dataset.sec}</a>`
+    )
+    .join('');
+  if (reduced || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        const link = nav.querySelector(`a[href="#${e.target.id}"]`);
+        if (link) link.classList.toggle('active', e.isIntersecting);
+      }),
+    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  );
+  secs.forEach((s) => io.observe(s));
 }
 
 /* ── Aparición al hacer scroll ───────────────────────────────── */
@@ -499,4 +533,5 @@ mask.addEventListener('click', (e) => {
 /* ── Arranque ────────────────────────────────────────────────── */
 render();
 typeHero();
+initIndex();
 initReveal();
