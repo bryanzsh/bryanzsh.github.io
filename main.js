@@ -122,7 +122,7 @@ const CV = {
       period: 'Carrera terminada — Marzo 2024',
       status: 'Terminada',
       monogram: 'T',
-      accent: '#e53935'
+      accent: '#1d4ed8'
     },
     {
       school: 'EPE UPC',
@@ -130,7 +130,7 @@ const CV = {
       period: 'Marzo 2024 — Actualidad',
       status: 'En curso',
       monogram: 'U',
-      accent: '#fb8c00'
+      accent: '#e53935'
     }
   ],
 
